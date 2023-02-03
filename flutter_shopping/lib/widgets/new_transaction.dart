@@ -15,7 +15,7 @@ class NewTransaction extends StatelessWidget {
       return;
     }
 
-    addTx(enteredAmount, enteredTitle);
+    addTx(enteredTitle, enteredAmount);
   }
 
   @override
