@@ -21,14 +21,14 @@ class TransactionList extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   decoration: BoxDecoration(
                       border: Border.all(
-                          color: Theme.of(context).primaryColor, width: 2)),
+                          color: Theme.of(context).colorScheme.primary)),
                   padding: EdgeInsets.all(10),
                   child: Text(
                     '\$${transactions[index].amount}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Theme.of(context).primaryColor),
+                        color: Theme.of(context).colorScheme.primary),
                   ),
                 ),
                 Column(
@@ -37,7 +37,7 @@ class TransactionList extends StatelessWidget {
                     Text(
                       transactions[index].title,
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          Theme.of(context).textTheme.headline6,
                     ),
                     Text(
                       DateFormat.yMMMd().format(transactions[index].date),
