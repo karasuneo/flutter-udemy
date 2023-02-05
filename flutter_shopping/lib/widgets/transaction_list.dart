@@ -5,13 +5,14 @@ import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  final Function deleteTx;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.deleteTx);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 600,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
@@ -36,11 +37,18 @@ class TransactionList extends StatelessWidget {
                   child: ListTile(
                     leading: CircleAvatar(
                       radius: 30,
-                      
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       child: Padding(
                         padding: EdgeInsets.all(6),
                         child: FittedBox(
-                            child: Text('\$${transactions[index].amount}')),
+                            child: Text(
+                          '\$${transactions[index].amount}',
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge
+                                  ?.color),
+                        )),
                       ),
                     ),
                     title: Text(
@@ -48,7 +56,13 @@ class TransactionList extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     subtitle: Text(
-                        DateFormat.yMMMd().format(transactions[index].date)),
+                      DateFormat.yMMMd().format(transactions[index].date),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      color: Theme.of(context).colorScheme.error,
+                      onPressed: () => deleteTx(transactions[index].id),
+                    ),
                   ),
                 );
 
