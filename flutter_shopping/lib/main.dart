@@ -112,27 +112,27 @@ class _MyHomePageState extends State<MyHomePage> {
     final isLandScape = mediaQuery.orientation == Orientation.landscape;
     final appBar = Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: Text(
+            middle: const Text(
               'Personal Expenses',
             ),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 GestureDetector(
-                  child: Icon(CupertinoIcons.add),
+                  child: const Icon(CupertinoIcons.add),
                   onTap: () => _startNewTransaction(context),
                 ),
               ],
             ),
           )
         : AppBar(
-            title: Text(
+            title: const Text(
               'Personal Expenses',
             ),
             actions: <Widget>[
               IconButton(
                 onPressed: () => _startNewTransaction(context),
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
               )
             ],
           ) as ObstructingPreferredSizeWidget;
@@ -178,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (!isLandScape) txListWidget,
             if (isLandScape)
               _showChart
-                  ? Container(
+                  ? SizedBox(
                       height: (MediaQuery.of(context).size.height -
                               appBar.preferredSize.height -
                               mediaQuery.padding.top) *
@@ -204,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
             floatingActionButton: Platform.isIOS
                 ? Container()
                 : FloatingActionButton(
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                     onPressed: () => _startNewTransaction(context),
                   ),
           );

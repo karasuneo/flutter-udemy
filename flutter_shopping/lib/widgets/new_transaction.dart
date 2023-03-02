@@ -78,7 +78,7 @@ class _NewTransactionState extends State<NewTransaction> {
                     onSubmitted: (_) => _submitData(),
                   ),
                   TextField(
-                    decoration: InputDecoration(labelText: 'Amount'),
+                    decoration: const InputDecoration(labelText: 'Amount'),
                     controller: _amountController,
                     keyboardType: TextInputType.number,
                     onSubmitted: (_) => _submitData(),
@@ -101,7 +101,6 @@ class _NewTransactionState extends State<NewTransaction> {
                   ),
                   ElevatedButton(
                     onPressed: _submitData,
-                    child: Text('Add Transaction'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
                           Theme.of(context).colorScheme.primary, // background
@@ -110,6 +109,7 @@ class _NewTransactionState extends State<NewTransaction> {
                           .labelLarge
                           ?.color, // foreground
                     ),
+                    child: const Text('Add Transaction'),
                   )
                 ])),
       ),

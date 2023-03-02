@@ -5,7 +5,7 @@ class ChartBar extends StatelessWidget {
   final double spendingAmount;
   final double spendingPctOfTotal;
 
-  ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
+  const ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +16,17 @@ class ChartBar extends StatelessWidget {
               height: 20,
               child: FittedBox(
                   child: Text('\$${spendingAmount.toStringAsFixed(0)}'))),
-          SizedBox(
+          const SizedBox(
             height: 4,
           ),
-          Container(
+          SizedBox(
             height: 60,
             width: 10,
             child: Stack(children: <Widget>[
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey, width: 1.0),
-                    color: Color.fromRGBO(220, 220, 220, 1),
+                    color: const Color.fromRGBO(220, 220, 220, 1),
                     borderRadius: BorderRadius.circular(20)),
               ),
               FractionallySizedBox(
@@ -39,7 +39,7 @@ class ChartBar extends StatelessWidget {
               )
             ]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 4,
           ),
           Text(label)
