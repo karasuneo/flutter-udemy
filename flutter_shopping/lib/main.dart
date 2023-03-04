@@ -106,6 +106,56 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  List<Widget> _buildLandscapeContent(
+    MediaQueryData mediaQuery,
+    ObstructingPreferredSizeWidget appBar,
+    Widget txListWidget,
+  ) {
+    return [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('Show Chart', style: Theme.of(context).textTheme.titleLarge),
+          Switch.adaptive(
+            activeColor: Theme.of(context).colorScheme.secondary,
+            value: _showChart,
+            onChanged: (val) {
+              setState(() {
+                _showChart = val;
+              });
+            },
+          ),
+        ],
+      ),
+      _showChart
+          ? SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      appBar.preferredSize.height -
+                      mediaQuery.padding.top) *
+                  0.7,
+              child: Chart(_recentTransactions),
+            )
+          : txListWidget
+    ];
+  }
+
+  List<Widget> _buildPortraitContent(
+    MediaQueryData mediaQuery,
+    ObstructingPreferredSizeWidget appBar,
+    Widget txListWidget,
+  ) {
+    return [
+      SizedBox(
+        height: (MediaQuery.of(context).size.height -
+                appBar.preferredSize.height -
+                mediaQuery.padding.top) *
+            0.3,
+        child: Chart(_recentTransactions),
+      ),
+      txListWidget
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -136,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           ) as ObstructingPreferredSizeWidget;
-    final txListWidget = Container(
+    final txListWidget = SizedBox(
       height: (MediaQuery.of(context).size.height -
               appBar.preferredSize.height -
               mediaQuery.padding.top) *
@@ -151,41 +201,17 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             if (isLandScape)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Show Chart',
-                      style: Theme.of(context).textTheme.titleLarge),
-                  Switch.adaptive(
-                    activeColor: Theme.of(context).colorScheme.secondary,
-                    value: _showChart,
-                    onChanged: (val) {
-                      setState(() {
-                        _showChart = val;
-                      });
-                    },
-                  ),
-                ],
+              ..._buildLandscapeContent(
+                mediaQuery,
+                appBar,
+                txListWidget,
               ),
             if (!isLandScape)
-              Container(
-                height: (MediaQuery.of(context).size.height -
-                        appBar.preferredSize.height -
-                        mediaQuery.padding.top) *
-                    0.3,
-                child: Chart(_recentTransactions),
+              ..._buildPortraitContent(
+                mediaQuery,
+                appBar,
+                txListWidget,
               ),
-            if (!isLandScape) txListWidget,
-            if (isLandScape)
-              _showChart
-                  ? SizedBox(
-                      height: (MediaQuery.of(context).size.height -
-                              appBar.preferredSize.height -
-                              mediaQuery.padding.top) *
-                          0.7,
-                      child: Chart(_recentTransactions),
-                    )
-                  : txListWidget
           ],
         ),
       ),
