@@ -94,7 +94,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   TextField(
-                    decoration: InputDecoration(labelText: 'Title'),
+                    decoration: const InputDecoration(labelText: 'Title'),
                     controller: _titleController,
                     onSubmitted: (_) => _submitData(),
                   ),
@@ -104,7 +104,7 @@ class _NewTransactionState extends State<NewTransaction> {
                     keyboardType: TextInputType.number,
                     onSubmitted: (_) => _submitData(),
                   ),
-                  Container(
+                  SizedBox(
                     height: 70,
                     child: Row(
                       children: <Widget>[

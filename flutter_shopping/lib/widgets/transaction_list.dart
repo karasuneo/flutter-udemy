@@ -7,7 +7,7 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function deleteTx;
 
-  TransactionList(this.transactions, this.deleteTx);
+ const TransactionList(this.transactions, this.deleteTx);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class TransactionList extends StatelessWidget {
             return Column(
               children: <Widget>[
                 Text(
-                  'No transaction addes yet!',
+                  'No transaction adds yet!',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(
