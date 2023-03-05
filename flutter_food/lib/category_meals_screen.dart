@@ -17,8 +17,10 @@ class CategoryMealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(categoryTitle as String),
       ),
-      body: const Center(
-        child: Text('The Recipes For The Category!'),
+      body: ListView.builder(
+        itemBuilder: (ctx, index) {
+
+        },itemCount: ,
       ),
     );
   }
