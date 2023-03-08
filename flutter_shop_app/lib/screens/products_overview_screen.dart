@@ -3,7 +3,7 @@ import 'package:flutter_shop_app/widgets/product_item.dart';
 
 import '../models/product.dart';
 
-class ProductScreen extends StatelessWidget {
+class ProductsOverviewScreen extends StatelessWidget {
   final List<Product> loadProducts = [
     Product(
       id: 'p1',

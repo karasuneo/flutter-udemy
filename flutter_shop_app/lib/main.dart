@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/screens/products_screen.dart';
+import 'package:flutter_shop_app/screens/products_overview_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,10 +8,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+         colorScheme:
+              ColorScheme.fromSwatch(primarySwatch: Colors.purple).copyWith(
+            secondary: Colors.deepOrange,
+          ),
+          fontFamily: 'Lato',
+        
       ),
       title: 'MyShop',
-      home: ProductScreen(),
+      home: ProductsOverviewScreen(),
     );
   }
 }
