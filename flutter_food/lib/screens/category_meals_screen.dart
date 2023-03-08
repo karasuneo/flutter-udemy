@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food/models/meal.dart';
 import 'package:flutter_food/widgets/meal_item.dart';
 
-import '../dummy_data.dart';
+
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = 'category-meals';
@@ -63,7 +63,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
             affordability: displayMeals[index].affordability,
             duration: displayMeals[index].duration,
             complexity: displayMeals[index].complexity,
-            removeItem: _removeMeal,
+            
           );
         },
         itemCount: displayMeals.length,

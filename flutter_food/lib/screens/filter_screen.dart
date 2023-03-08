@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_food/widgets/main_drawer.dart';
 
 class FilterScreen extends StatefulWidget {
   static const routeName = '/filter';
 
-  final Function saveFilters;
   final Map<String, bool> currentFilters;
+  final Function saveFilters;
 
   FilterScreen(
     this.currentFilters,
@@ -24,6 +25,7 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   void initState() {
+    // print(widget.currentFilters);
     _glutenFree = widget.currentFilters['gluten'] as bool;
     _lactoseFree = widget.currentFilters['lactose'] as bool;
     _vegan = widget.currentFilters['vegan'] as bool;
