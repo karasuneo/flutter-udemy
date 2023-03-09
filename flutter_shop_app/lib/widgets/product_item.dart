@@ -36,7 +36,6 @@ class ProductItem extends StatelessWidget {
                   product.toggleFavoriteStatus();
                 },
               ),
-              
             ),
             title: Text(
               product.title,
