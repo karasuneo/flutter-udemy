@@ -12,7 +12,7 @@ class OrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final orderData = Provider.of<Orders>(context);
 
-    return Scaffold(
+    return Scaffold(  
       appBar: AppBar(
         title:const Text('Your Orders'),
       ),
