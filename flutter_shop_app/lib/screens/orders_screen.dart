@@ -14,9 +14,9 @@ class OrderScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Orders'),
+        title:const Text('Your Orders'),
       ),
-      drawer: AppDrawer(),
+      drawer:const AppDrawer(),
       body: ListView.builder(
         itemCount: orderData.orders.length,
         itemBuilder: (ctx, i) => OrderItem(
