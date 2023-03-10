@@ -42,13 +42,13 @@ class CardItem extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(ctx).pop(false);
                 },
-                child: Text('No'),
+                child:const Text('No'),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.of(ctx).pop(true);
                 },
-                child: Text('Yes'),
+                child:const Text('Yes'),
               ),
             ],
           ),
