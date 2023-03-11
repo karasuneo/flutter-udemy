@@ -68,6 +68,17 @@ class Products with ChangeNotifier {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
+  Future<void> fetchAndSetProduct() async {
+    final url = Uri.parse(
+        'https://deploytest-bb005-default-rtdb.firebaseio.com/products.json');
+    try {
+      final response = await http.get(url);
+      print(response);
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   Future<void> addProduct(Product product) async {
     final url = Uri.parse(
         'https://deploytest-bb005-default-rtdb.firebaseio.com/products.json');
@@ -95,7 +106,7 @@ class Products with ChangeNotifier {
       notifyListeners();
     } catch (error) {
       print(error);
-      throw error;
+      rethrow;
     }
   }
 
